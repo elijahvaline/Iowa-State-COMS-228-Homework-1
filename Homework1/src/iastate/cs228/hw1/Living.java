@@ -9,18 +9,17 @@ import java.util.ArrayList;
  */
 
 /**
- * 
  * Living refers to the life form occupying a square in a plain grid. It is a
  * superclass of Empty, Grass, and Animal, the latter of which is in turn a
  * superclass of Badger, Fox, and Rabbit. Living has two abstract methods
  * awaiting implementation.
- *
  */
 public abstract class Living {
 	protected Plain plain; // the plain in which the life form resides
 	protected int row; // location of the square on which
 	protected int column; // the life form resides
 	protected ArrayList<Living> neighborhood = new ArrayList<Living>();
+	
 	// constants to be used as indices.
 	protected static final int BADGER = 0;
 	protected static final int EMPTY = 1;
@@ -78,10 +77,10 @@ public abstract class Living {
 				int yPosition = this.column - 1 + i;
 
 				// This creates an arrayList of neighbors.
-				if (yPosition == this.column && xPosition == this.row) {
-					
-				}
-				else if (xPosition < this.plain.grid.length && xPosition > -1) {
+//				if (yPosition == this.column && xPosition == this.row) {
+//					
+//				}
+				 if (xPosition < this.plain.grid.length && xPosition > -1) {
 					if (yPosition < this.plain.grid[1].length && yPosition > -1) {
 						neighborhood.add(this.plain.grid[xPosition][yPosition]);
 					}

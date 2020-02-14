@@ -18,6 +18,9 @@ public class Rabbit extends Animal
 	 * @param c: column position
 	 * @param a: age 
 	 */
+	
+	private int[] pop = new int[5];
+	
 	public Rabbit (Plain p, int r, int c, int a) 
 	{
 		this.age = a;
@@ -40,11 +43,44 @@ public class Rabbit extends Animal
 	 */
 	public Living next(Plain pNew)
 	{
+		
+	super.census(pop);
+	
+	// Count the numbers of Badgers, Empties, Foxes, Grasses, and Rabbits
+		Living returner;
+		if (this.age >=  3) {
+			//empty
+			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column );
+			returner= pNew.grid[this.row][this.column];
+			
+		}
+		else if (pop[3] == 0) {
+			//empty
+			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column );
+			returner = pNew.grid[this.row][this.column];
+		}
+		else if (pop[0] + pop[2] >= pop[4]) {
+			pNew.grid[this.row][this.column] = new Fox(pNew, this.row, this.column, 0 );
+			returner = pNew.grid[this.row][this.column];
+			//fox
+		}
+		else if (pop[0] > pop[4]) {
+			// badger
+			pNew.grid[this.row][this.column] = new Badger(pNew, this.row, this.column, 0 );
+			returner = pNew.grid[this.row][this.column];
+		}
+		else {
+			//nothing
+			this.age++;
+			returner =  this;
+		}
+		neighborhood.clear();
+		return returner;
 		// TODO 
 		// 
 		// See Living.java for an outline of the function. 
 		// See the project description for the survival rules for a rabbit. 
-		return null; 
+		
 	}
 	public String tString() {
 		

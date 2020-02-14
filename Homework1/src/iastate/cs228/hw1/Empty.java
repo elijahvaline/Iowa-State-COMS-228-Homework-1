@@ -11,6 +11,7 @@ package iastate.cs228.hw1;
  */
 public class Empty extends Living 
 {
+	private int[] pop = new int[5];
 	public Empty (Plain p, int r, int c) 
 	{
 		
@@ -32,11 +33,38 @@ public class Empty extends Living
 	 */
 	public Living next(Plain pNew)
 	{
+		
+	super.census(pop);
+	// Count the numbers of Badgers, Empties, Foxes, Grasses, and Rabbits
+
+		if (pop[4] > 1) {
+			pNew.grid[this.row][this.column] = new Rabbit(pNew, this.row, this.column, 0 );
+			return pNew.grid[this.row][this.column];
+		}
+		else if (pop[2] > 1) {
+			//fox
+			pNew.grid[this.row][this.column] = new Fox(pNew, this.row, this.column, 0 );
+			return pNew.grid[this.row][this.column];
+		}
+		else if (pop[0] > 1) {
+			//badger
+			pNew.grid[this.row][this.column] = new Badger(pNew, this.row, this.column, 0 );
+			return pNew.grid[this.row][this.column];
+		}
+		else if (pop[3] >= 1){
+			//grass
+			pNew.grid[this.row][this.column] = new Grass(pNew, this.row, this.column );
+			return pNew.grid[this.row][this.column];
+		}
+		else {
+			return this;
+		}
+		
 		// TODO 
 		// 
 		// See Living.java for an outline of the function. 
 		// See the project description for corresponding survival rules. 
-		return null; 
+	
 	}
 	
 	public String tString() {

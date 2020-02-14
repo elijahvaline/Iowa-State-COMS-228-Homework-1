@@ -20,6 +20,8 @@ public class Badger extends Animal {
 	 * @param c: column position
 	 * @param a: age
 	 */
+	
+	private int[] pop = new int[5];
 	public Badger(Plain p, int r, int c, int a) {
 		this.age = a;
 		this.row = r;
@@ -43,11 +45,33 @@ public class Badger extends Animal {
 	 * @return Living life form occupying the square in the next cycle.
 	 */
 	public Living next(Plain pNew) {
-		// TODO
-		//
-		// See Living.java for an outline of the function.
-		// See the project description for the survival rules for a badger.
-		return null;
+		
+		// Count the numbers of Badgers, Empties, Foxes, Grasses, and Rabbits
+
+		
+		super.census(pop);
+		
+		if (this.age >=  4) {
+			//empty
+			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column);
+			return pNew.grid[this.row][this.column];
+		}
+		else if (pop[0] == 1 && pop[3] > 1) {
+			//fox
+			pNew.grid[this.row][this.column] = new Fox(pNew, this.row, this.column, 0);
+			return pNew.grid[this.row][this.column];
+		}
+		else if (pop[0] + pop[2] > pop[4]) {
+			//empty
+			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column);
+			return pNew.grid[this.row][this.column];
+		}
+		else {
+			this.age++;
+			return this;
+		}
+		
+
 	}
 	
 	public String tString() {

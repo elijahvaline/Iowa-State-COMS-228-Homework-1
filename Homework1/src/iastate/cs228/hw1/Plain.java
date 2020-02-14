@@ -22,45 +22,54 @@ public class Plain {
 
 	public Living[][] grid;
 
+	private Scanner s;
+
+	private Scanner scan;
+
 	/**
 	 * Default constructor reads from a file
 	 */
 	public Plain(String inputFileName) throws FileNotFoundException {
 		
-		Scanner s = new Scanner(inputFileName);
-		Scanner scan = new Scanner(inputFileName);
-		while (s.hasNext()) {
+		File f = new File(inputFileName);
+		s = new Scanner(f);
+		scan = new Scanner(f);
+		while (s.hasNextLine()) {
 			width++;
-			s.next();
+			s.nextLine();
 		}
+		
 		grid = new Living[width][width];
+		int x;
+		int y;
 
-		for (int y = 0; y <= width; y++) {
+		for (y = 0; y < width; y++) {
 
-			for (int x = 0; x <= width; x++) {
+			for (x = 0; x < width; x++) {
 
 				String curr = scan.next();
 				char first = curr.charAt(0);
 
 				switch (first) {
 				case 'B':
-					grid[y][x] = new Badger(this, x, y, (int)curr.charAt(1));
+					grid[x][y] = new Badger(this, x, y, Character.getNumericValue(curr.charAt(1)));
 					break;
 				case 'E':
-					grid[y][x] = new Empty(this,x,y);
+					grid[x][y] = new Empty(this,x,y);
 					break;
 				case 'F':
-					grid[y][x] = new Fox(this, x, y, (int)curr.charAt(1));
+					grid[x][y] = new Fox(this, x, y, Character.getNumericValue(curr.charAt(1)));
 					break;
 				case 'G':
-					grid[y][x] = new Grass(this, x,y);
+					grid[x][y] = new Grass(this, x,y);
 					break;
 				case 'R':
-					grid[y][x] = new Rabbit(this, x, y, (int)curr.charAt(1));
+					grid[x][y] = new Rabbit(this, x, y, Character.getNumericValue(curr.charAt(1)));
 					break;
 
 				}	
 			}
+			x = 0;
 		}
 		
 

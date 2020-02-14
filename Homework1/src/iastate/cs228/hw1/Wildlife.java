@@ -22,6 +22,7 @@ public class Wildlife
 	 * @param pOld  old plain
 	 * @param pNew  new plain 
 	 */
+
 	public static void updatePlain(Plain pOld, Plain pNew)
 	{
 		// TODO 
@@ -31,6 +32,15 @@ public class Wildlife
 		// the former life form changes into the latter life form. 
 		// 
 		// Employ the method next() of the Living class. 
+		
+		for (int i = 0; i< pOld.grid.length; i++) {
+			for (int j = 0; j<pOld.grid.length; j++) {
+				pNew.grid[j][i] = pOld.grid[j][i].next(pNew);
+				
+			}
+		}
+		
+		
 		
 		
 	}

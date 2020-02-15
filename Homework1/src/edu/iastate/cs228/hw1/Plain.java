@@ -1,4 +1,4 @@
-package iastate.cs228.hw1;
+package edu.iastate.cs228.hw1;
 
 /**
  *  
@@ -88,6 +88,7 @@ public class Plain {
 		grid = new Living[w][w];
 		width = w;
 		randomInit();
+		
 		
 		
 	}

@@ -1,4 +1,4 @@
-package iastate.cs228.hw1;
+package edu.iastate.cs228.hw1;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -50,6 +50,9 @@ public class Wildlife {
 	public static void main(String[] args) throws FileNotFoundException {
 		// Outputs the user instructions and takes user input from a scanner and applies
 		// it to variables. Using a switch statement the correct trial is then executed.
+		
+		//On an somewhat unrelated note, I really feel like rabbits are somewhat OP in this
+		//Simulation. They are much better off to survive long term than either the fox or the badger.
 		int input;
 		boolean running = true;
 		int trial = 1;

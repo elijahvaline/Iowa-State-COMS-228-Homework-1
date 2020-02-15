@@ -1,7 +1,5 @@
 package iastate.cs228.hw1;
 
-import java.util.Arrays;
-
 /**
  *  
  * @author
@@ -66,7 +64,7 @@ public class Grass extends Living
 
 	}
 
-	public String tString() {
+	public String stringer() {
 		return "G";
 	}
 }

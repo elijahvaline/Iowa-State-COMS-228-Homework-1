@@ -85,7 +85,7 @@ public class Fox extends Animal
 	
 	}
 
-	public String tString() {
+	public String stringer() {
 		
 		return "F" + super.age;
 	}

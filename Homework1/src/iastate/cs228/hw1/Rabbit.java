@@ -87,7 +87,7 @@ public class Rabbit extends Animal
 		// See the project description for the survival rules for a rabbit. 
 		
 	}
-	public String tString() {
+	public String stringer() {
 		
 		return "R" + super.age;
 	}

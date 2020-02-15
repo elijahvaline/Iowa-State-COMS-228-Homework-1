@@ -72,7 +72,7 @@ public class Empty extends Living
 	
 	}
 	
-	public String tString() {
+	public String stringer() {
 		
 		return "E";
 	}

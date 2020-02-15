@@ -153,11 +153,13 @@ public class Plain {
 	 * age of the animal followed by a blank space; otherwise, output two blanks.
 	 */
 	public String toString() {
+		
+		//Calls
 		String output = "";
 		
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < width; j++) {
-				output += grid[i][j].tString() + " ";	
+				output += grid[i][j].stringer() + " ";	
 				
 			}
 			output += "\n";

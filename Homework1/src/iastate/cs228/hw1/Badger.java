@@ -1,7 +1,5 @@
 package iastate.cs228.hw1;
 
-import java.util.ArrayList;
-
 /**
  *  
  * @author
@@ -79,7 +77,7 @@ public class Badger extends Animal {
 		
 	}
 	
-	public String tString() {
+	public String stringer() {
 		
 		return "B" + super.age;
 		

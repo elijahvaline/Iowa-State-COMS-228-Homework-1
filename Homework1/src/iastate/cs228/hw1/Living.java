@@ -99,7 +99,7 @@ public abstract class Living {
 		String s = "";
 		for (int i = 0; i<neighborhood.size(); i++) {
 			
-			s += " " + neighborhood.get(i).tString();
+			s += " " + neighborhood.get(i).stringer();
 		}
 		return s;
 	}
@@ -109,7 +109,7 @@ public abstract class Living {
 	 * 
 	 * @return State
 	 */
-	public abstract String tString();
+	public abstract String stringer();
 	public abstract State who();
 	// To be implemented in each class of Badger, Empty, Fox, Grass, and Rabbit.
 	//

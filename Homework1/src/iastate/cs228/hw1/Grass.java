@@ -1,5 +1,7 @@
 package iastate.cs228.hw1;
 
+import java.util.Arrays;
+
 /**
  *  
  * @author
@@ -34,27 +36,29 @@ public class Grass extends Living
 	{
 		
 		// Count the numbers of Badgers, Empties, Foxes, Grasses, and Rabbits
-		Living returner;
+		
 		super.census(pop);
 		
 		if ( pop[4] >= pop[3] * 3) {
 			//empty
-			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column );
-			returner = pNew.grid[this.row][this.column];
+//			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column );
+//			return pNew.grid[this.row][this.column];
+			return new Empty(pNew, this.row, this.column );
 
 		}
 		else if (pop[4] >= 3) {
 			//rabbit
-			pNew.grid[this.row][this.column] = new Rabbit(pNew, this.row, this.column, 0 );
-			returner = pNew.grid[this.row][this.column];
+//			pNew.grid[this.row][this.column] = new Rabbit(pNew, this.row, this.column, 0 );
+//			return pNew.grid[this.row][this.column];
+			return new Rabbit(pNew, this.row, this.column, 0 );
 		}
 		else {
 			//nothing
-			returner = this;
+//			pNew.grid[this.row][this.column] = new Grass(pNew, this.row, this.column);
+//			return pNew.grid[this.row][this.column];
+			return new Grass(pNew, this.row, this.column);
 		}
 		
-		neighborhood.clear();
-		return returner;
 		// TODO 
 		// 
 		// See Living.java for an outline of the function. 

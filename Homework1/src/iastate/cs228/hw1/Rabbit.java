@@ -43,39 +43,44 @@ public class Rabbit extends Animal
 	 */
 	public Living next(Plain pNew)
 	{
-		
+	
 	super.census(pop);
 	
 	// Count the numbers of Badgers, Empties, Foxes, Grasses, and Rabbits
-		Living returner;
+		
 		if (this.age >=  3) {
 			//empty
-			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column );
-			returner= pNew.grid[this.row][this.column];
+//			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column );
+//			return pNew.grid[this.row][this.column];
+			return new Empty(pNew, this.row, this.column );
 			
 		}
 		else if (pop[3] == 0) {
 			//empty
-			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column );
-			returner = pNew.grid[this.row][this.column];
+//			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column );
+//			return pNew.grid[this.row][this.column];
+			return new Empty(pNew, this.row, this.column );
 		}
-		else if (pop[0] + pop[2] >= pop[4]) {
-			pNew.grid[this.row][this.column] = new Fox(pNew, this.row, this.column, 0 );
-			returner = pNew.grid[this.row][this.column];
+		else if (pop[0] + pop[2] >= pop[4] && pop[2] > pop[0]) {
+//			pNew.grid[this.row][this.column] = new Fox(pNew, this.row, this.column, 0 );
+//			return pNew.grid[this.row][this.column];
+			return new Fox(pNew, this.row, this.column, 0 );
 			//fox
 		}
 		else if (pop[0] > pop[4]) {
 			// badger
-			pNew.grid[this.row][this.column] = new Badger(pNew, this.row, this.column, 0 );
-			returner = pNew.grid[this.row][this.column];
+//			pNew.grid[this.row][this.column] = new Badger(pNew, this.row, this.column, 0 );
+//			return pNew.grid[this.row][this.column];
+			return new Badger(pNew, this.row, this.column, 0 );
 		}
 		else {
 			//nothing
 			this.age++;
-			returner =  this;
+//			pNew.grid[this.row][this.column] = new Rabbit(pNew, this.row, this.column, this.age );
+//			return pNew.grid[this.row][this.column];
+			return new Rabbit(pNew, this.row, this.column, this.age );
 		}
-		neighborhood.clear();
-		return returner;
+
 		// TODO 
 		// 
 		// See Living.java for an outline of the function. 

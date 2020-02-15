@@ -48,6 +48,11 @@ public abstract class Living {
 		// in the 3x3 neighborhood centered at this Living object. Store the
 		// counts in the array population[] at indices 0, 1, 2, 3, 4, respectively.
 		this.neighbors();
+		population[0] = 0;
+		population[1] = 0;
+		population[2] = 0;
+		population[3] = 0;
+		population[4] = 0;
 		for (int i = 0; i < neighborhood.size(); i++) {
 			switch (neighborhood.get(i).who()) {
 			case BADGER:

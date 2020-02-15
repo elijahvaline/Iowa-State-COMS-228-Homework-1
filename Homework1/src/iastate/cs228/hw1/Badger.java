@@ -53,25 +53,30 @@ public class Badger extends Animal {
 		
 		if (this.age >=  4) {
 			//empty
-			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column);
-			return pNew.grid[this.row][this.column];
+//			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column);
+//			return pNew.grid[this.row][this.column];
+			return new Empty(pNew, this.row, this.column);
 		}
-		else if (pop[0] == 1 && pop[3] > 1) {
+		else if (pop[0] == 1 && pop[2] > 1) {
 			//fox
-			pNew.grid[this.row][this.column] = new Fox(pNew, this.row, this.column, 0);
-			return pNew.grid[this.row][this.column];
+//			pNew.grid[this.row][this.column] = new Fox(pNew, this.row, this.column, 0);
+//			return pNew.grid[this.row][this.column];
+			return new Fox(pNew, this.row, this.column, 0);
 		}
 		else if (pop[0] + pop[2] > pop[4]) {
 			//empty
-			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column);
-			return pNew.grid[this.row][this.column];
+//			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column);
+//			return pNew.grid[this.row][this.column];
+			return new Empty(pNew, this.row, this.column);
 		}
 		else {
 			this.age++;
-			return this;
+//			pNew.grid[this.row][this.column] = new Badger(pNew, this.row, this.column, this.age);
+//			return pNew.grid[this.row][this.column];
+			return new Badger(pNew, this.row, this.column, this.age);
+			
 		}
 		
-
 	}
 	
 	public String tString() {

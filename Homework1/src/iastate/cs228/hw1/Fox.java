@@ -19,6 +19,7 @@ public class Fox extends Animal
 	 * @param a: age 
 	 */
 	private int[] pop = new int[5];
+
 	
 	public Fox (Plain p, int r, int c, int a) 
 	{
@@ -46,30 +47,37 @@ public class Fox extends Animal
 	{
 		
 		// Count the numbers of Badgers, Empties, Foxes, Grasses, and Rabbits
+	
 		super.census(pop);
 		
 		if (this.age >=  6) {
 			//empty
-			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column );
-			return pNew.grid[this.row][this.column];
+//			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column );
+//			return pNew.grid[this.row][this.column];
+			return new Empty(pNew, this.row, this.column );
 			
 		}
 		else if (pop[0] > pop[2]) {
 			//badger
-			pNew.grid[this.row][this.column] = new Badger(pNew, this.row, this.column, 0 );
-			return pNew.grid[this.row][this.column];
+//			pNew.grid[this.row][this.column] = new Badger(pNew, this.row, this.column, 0 );
+//			return pNew.grid[this.row][this.column];
+			return new Badger(pNew, this.row, this.column, 0 );
 		}
 		else if (pop[0] + pop[2] > pop[4]) {
 			//empty
-			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column );
-			return pNew.grid[this.row][this.column];
+//			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column );
+//			return pNew.grid[this.row][this.column];
+			return new Empty(pNew, this.row, this.column );
 		}
 		else {
 			//nothing
 			this.age++;
-			return this;
+//			pNew.grid[this.row][this.column] = new Fox(pNew, this.row, this.column, this.age );
+//			return pNew.grid[this.row][this.column];
+			return new Fox(pNew, this.row, this.column, this.age );
 			
 		}
+		
 		// TODO 
 		// 
 		// See Living.java for an outline of the function. 

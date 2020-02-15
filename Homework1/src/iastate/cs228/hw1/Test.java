@@ -14,19 +14,18 @@ public class Test {
 //		
 //		Wildlife.updatePlain(testy, p1);
 //		System.out.println(p1.toString());
-		
-		Plain zed = new Plain("test5.txt");
-		System.out.println(" First:" + "\n" +  zed.toString());
-		
-		for(int i = 0; i<8; i++) { 
-		Plain p2 = new Plain(zed.grid.length);
-		Wildlife.updatePlain(zed, p2);
-		zed = p2;
-		System.out.println(zed.toString());
+
+		Plain zed = new Plain(6);
+		System.out.println(" First:" + "\n" + zed.toString());
+
+		for (int i = 0; i < 6; i++) {
+			Plain p2 = new Plain(zed.grid.length);
+			Wildlife.updatePlain(zed, p2);
+			zed = p2;
+			System.out.println(zed.toString());
 		}
-		
-		
-//		System.out.println(zed.toString());
+
+	
 
 	}
 

@@ -43,9 +43,9 @@ public class Plain {
 		int x;
 		int y;
 
-		for (y = 0; y < width; y++) {
+		for (x = 0; x < width; x++) {
 
-			for (x = 0; x < width; x++) {
+			for (y = 0; y < width; y++) {
 
 				String curr = scan.next();
 				char first = curr.charAt(0);
@@ -69,7 +69,7 @@ public class Plain {
 
 				}	
 			}
-			x = 0;
+			y = 0;
 		}
 		
 
@@ -97,6 +97,8 @@ public class Plain {
 		
 		grid = new Living[w][w];
 		width = w;
+		randomInit();
+		
 		
 	}
 
@@ -155,7 +157,7 @@ public class Plain {
 		
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < width; j++) {
-				output += " " + grid[j][i].tString();	
+				output += grid[i][j].tString() + " ";	
 				
 			}
 			output += "\n";

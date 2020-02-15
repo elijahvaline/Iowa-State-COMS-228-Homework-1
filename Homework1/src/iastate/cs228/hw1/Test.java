@@ -24,6 +24,7 @@ public class Test {
 			zed = p2;
 			System.out.println(zed.toString());
 		}
+		zed.write("test.txt");
 
 	
 

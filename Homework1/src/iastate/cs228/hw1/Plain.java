@@ -2,7 +2,7 @@ package iastate.cs228.hw1;
 
 /**
  *  
- * @author
+ * @author Elijah Valine 
  *
  */
 
@@ -18,18 +18,22 @@ import java.util.Random;
  *
  */
 public class Plain {
+	
 	private int width; // grid size: width X width
-
 	public Living[][] grid;
-
 	private Scanner s;
-
 	private Scanner scan;
 
 	/**
 	 * Default constructor reads from a file
 	 */
 	public Plain(String inputFileName) throws FileNotFoundException {
+		
+		/*
+		 * Uses a scanner to find the total width of the given plain, and then uses a different scanner to read each
+		 * individual component and setting a the variable curr equal to it. Using a switch statement a Living object
+		 * is created for every component in the file.
+		 */
 		
 		File f = new File(inputFileName);
 		s = new Scanner(f);
@@ -71,21 +75,7 @@ public class Plain {
 			}
 			y = 0;
 		}
-		
 
-		// TODO
-		//
-		// Assumption: The input file is in correct format.
-		//
-		// You may create the grid plain in the following steps:
-		//
-		// 1) Reads the first line to determine the width of the grid.
-		//
-		// 2) Creates a grid object.
-		//
-		// 3) Fills in the grid according to the input file.
-		//
-		// Be sure to close the input file when you are done.
 	}
 
 	/**
@@ -94,17 +84,20 @@ public class Plain {
 	 * @param width the grid
 	 */
 	public Plain(int w) {
-		
+		//Creates a plain with the given width and then initializes it with the randomInit() method.
 		grid = new Living[w][w];
 		width = w;
 		randomInit();
 		
 		
 	}
-
+/**
+ * 
+ * @return The width of the current plain.
+ */
 	public int getWidth() {
-		// TODO
-		return width; // to be modified
+		
+		return width; 
 	}
 
 	/**
@@ -114,6 +107,11 @@ public class Plain {
 	 * Every animal starts at age 0.
 	 */
 	public void randomInit() {
+		
+		/*
+		 * Takes a random number between 0-4 and uses an array to convert it to a character. Using the character
+		 * it creates a new random Living object.
+		 */
 		
 		Random generator = new Random();
 		
@@ -154,8 +152,8 @@ public class Plain {
 	 */
 	public String toString() {
 		
-		//Calls
-		String output = "";
+		//Calls stringer on all Living objects in the plain and outputs it to a single string.
+ 		String output = "";
 		
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < width; j++) {

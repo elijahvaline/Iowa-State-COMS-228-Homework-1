@@ -2,7 +2,7 @@ package iastate.cs228.hw1;
 
 /**
  *  
- * @author
+ * @author Elijah Valine
  *
  */
 
@@ -20,7 +20,6 @@ public abstract class Animal extends Living implements MyAge
 	 */
 	public int myAge()
 	{
-		// TODO 
 		return age; 
 	}
 }

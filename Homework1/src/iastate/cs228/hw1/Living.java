@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  *  
- * @author
+ * @author Elijah Valine
  *
  */
 
@@ -15,6 +15,7 @@ import java.util.ArrayList;
  * awaiting implementation.
  */
 public abstract class Living {
+	
 	protected Plain plain; // the plain in which the life form resides
 	protected int row; // location of the square on which
 	protected int column; // the life form resides
@@ -42,11 +43,7 @@ public abstract class Living {
 	
 
 	protected void census(int population[]) {
-		// TODO
-		//
-		// Count the numbers of Badgers, Empties, Foxes, Grasses, and Rabbits
-		// in the 3x3 neighborhood centered at this Living object. Store the
-		// counts in the array population[] at indices 0, 1, 2, 3, 4, respectively.
+		//Using the ArrayList neighborhood, and increments the corresponding spot in the population array.
 		this.neighbors();
 		population[0] = 0;
 		population[1] = 0;
@@ -74,17 +71,18 @@ public abstract class Living {
 		}
 	}
 
+	/**
+	 * Adds all adjacent Living objects to the ArrayList neighborhood.
+	 */
 	protected void neighbors() {
+		
+		//Looks at every component of the neighborhood and adds the Living object to an ArrayList neighborhood.
 
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				int xPosition = this.row - 1 + j;
 				int yPosition = this.column - 1 + i;
 
-				// This creates an arrayList of neighbors.
-//				if (yPosition == this.column && xPosition == this.row) {
-//					
-//				}
 				 if (xPosition < this.plain.grid.length && xPosition > -1) {
 					if (yPosition < this.plain.grid[1].length && yPosition > -1) {
 						neighborhood.add(this.plain.grid[xPosition][yPosition]);
@@ -94,7 +92,14 @@ public abstract class Living {
 		}
 	}
 	
+	/**
+	 * The neighborhood is all the adjacent Living objects.
+	 * @return Returns a string containing all the Living objects in the neighborhood.
+	 */
 	public String neighborsString() {
+		
+		//Converts all components of the ArrayList neighborhood to a string.
+		
 		this.neighbors();
 		String s = "";
 		for (int i = 0; i<neighborhood.size(); i++) {
@@ -111,28 +116,6 @@ public abstract class Living {
 	 */
 	public abstract String stringer();
 	public abstract State who();
-	// To be implemented in each class of Badger, Empty, Fox, Grass, and Rabbit.
-	//
-	// There are five states given in State.java. Include the prefix State in
-	// the return value, e.g., return State.Fox instead of Fox.
-
-	/**
-	 * Determines the life form on the square in the next cycle.
-	 * 
-	 * @param pNew plain of the next cycle
-	 * @return Living
-	 */
 	public abstract Living next(Plain pNew);
-	// To be implemented in the classes Badger, Empty, Fox, Grass, and Rabbit.
-	//
-	// For each class (life form), carry out the following:
-	//
-	// 1. Obtains counts of life forms in the 3x3 neighborhood of the class object.
-
-	// 2. Applies the survival rules for the life form to determine the life form
-	// (on the same square) in the next cycle. These rules are given in the
-	// project description.
-	//
-	// 3. Generate this new life form at the same location in the plain pNew.
 
 }

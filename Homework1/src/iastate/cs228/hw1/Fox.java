@@ -2,7 +2,7 @@ package iastate.cs228.hw1;
 
 /**
  *  
- * @author
+ * @author Elijah Valine
  *
  */
 
@@ -11,6 +11,9 @@ package iastate.cs228.hw1;
  */
 public class Fox extends Animal 
 {
+	
+	private int[] pop = new int[5];
+	
 	/**
 	 * Constructor 
 	 * @param p: plain
@@ -18,9 +21,7 @@ public class Fox extends Animal
 	 * @param c: column position
 	 * @param a: age 
 	 */
-	private int[] pop = new int[5];
 
-	
 	public Fox (Plain p, int r, int c, int a) 
 	{
 		this.age = a;
@@ -34,7 +35,6 @@ public class Fox extends Animal
 	 */
 	public State who()
 	{
-		// TODO 
 		return State.FOX; 
 	}
 	
@@ -45,46 +45,31 @@ public class Fox extends Animal
 	 */
 	public Living next(Plain pNew)
 	{
-		
-		// Count the numbers of Badgers, Empties, Foxes, Grasses, and Rabbits
-	
+		//Returns a new Living object, that will reside in the current space on the grid, based on the set of rules.
 		super.census(pop);
 		
 		if (this.age >=  6) {
-			//empty
-//			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column );
-//			return pNew.grid[this.row][this.column];
-			return new Empty(pNew, this.row, this.column );
 			
-		}
-		else if (pop[0] > pop[2]) {
-			//badger
-//			pNew.grid[this.row][this.column] = new Badger(pNew, this.row, this.column, 0 );
-//			return pNew.grid[this.row][this.column];
-			return new Badger(pNew, this.row, this.column, 0 );
-		}
-		else if (pop[0] + pop[2] > pop[4]) {
-			//empty
-//			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column );
-//			return pNew.grid[this.row][this.column];
 			return new Empty(pNew, this.row, this.column );
-		}
-		else {
-			//nothing
-			this.age++;
-//			pNew.grid[this.row][this.column] = new Fox(pNew, this.row, this.column, this.age );
-//			return pNew.grid[this.row][this.column];
-			return new Fox(pNew, this.row, this.column, this.age );
-			
 		}
 		
-		// TODO 
-		// 
-		// See Living.java for an outline of the function. 
-		// See the project description for the survival rules for a fox. 
-	
+		else if (pop[0] > pop[2]) {
+			return new Badger(pNew, this.row, this.column, 0 );
+		}
+		
+		else if (pop[0] + pop[2] > pop[4]) {
+			return new Empty(pNew, this.row, this.column );
+		}
+		
+		else {
+			this.age++;
+			return new Fox(pNew, this.row, this.column, this.age );	
+		} 
 	}
 
+	/**
+	 * @return A string containing the letter "F" and the current age of the fox object.
+	 */
 	public String stringer() {
 		
 		return "F" + super.age;

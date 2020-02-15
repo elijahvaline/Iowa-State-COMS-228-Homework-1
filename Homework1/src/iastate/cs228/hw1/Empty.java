@@ -2,7 +2,7 @@ package iastate.cs228.hw1;
 
 /**
  *  
- * @author
+ * @author Elijah Valine
  *
  */
 
@@ -12,17 +12,24 @@ package iastate.cs228.hw1;
 public class Empty extends Living 
 {
 	private int[] pop = new int[5];
+	
+	/**
+	 * Constructs an empty Living object.
+	 * @param p The plain this object resides in.
+	 * @param r This object's row.
+	 * @param c This object's column
+	 */
 	public Empty (Plain p, int r, int c) 
 	{
-		
 		this.row = r;
 		this.column = c;
 		this.plain = p; 
 	}
-	
+	/**
+	 * @return The current state of this Living object.
+	 */
 	public State who()
 	{
-		// TODO 
 		return State.EMPTY; 
 	}
 	
@@ -33,45 +40,36 @@ public class Empty extends Living
 	 */
 	public Living next(Plain pNew)
 	{
+		// Returns a new Living object, that will reside in the current space on the
+		// grid, based on the set of rules.
 		
 	super.census(pop);
-	// Count the numbers of Badgers, Empties, Foxes, Grasses, and Rabbits
+	
 		if (pop[4] > 1) {
-//			pNew.grid[this.row][this.column] = new Rabbit(pNew, this.row, this.column, 0 );
-//			return  pNew.grid[this.row][this.column];
+
 			return new Rabbit(pNew, this.row, this.column, 0 );
 		}
 		else if (pop[2] > 1) {
-			//fox
-//			pNew.grid[this.row][this.column] = new Fox(pNew, this.row, this.column, 0 );
-//			return pNew.grid[this.row][this.column];
+
 			return new Fox(pNew, this.row, this.column, 0 );
 		}
 		else if (pop[0] > 1) {
-			//badger
-//			pNew.grid[this.row][this.column] = new Badger(pNew, this.row, this.column, 0 );
-//			return pNew.grid[this.row][this.column];
+
 			return new Badger(pNew, this.row, this.column, 0 );
 		}
 		else if (pop[3] >= 1){
-			//grass
-//			pNew.grid[this.row][this.column] = new Grass(pNew, this.row, this.column );
-//			return pNew.grid[this.row][this.column];
+
 			return new Grass(pNew, this.row, this.column );
 		}
 		else {
-//			pNew.grid[this.row][this.column] = new Empty(pNew, this.row, this.column);
-//			return pNew.grid[this.row][this.column];
+
 			return new Empty(pNew, this.row, this.column);
 		}
-		
-		// TODO 
-		// 
-		// See Living.java for an outline of the function. 
-		// See the project description for corresponding survival rules. 
-	
 	}
 	
+	/**
+	 * @return A string containing the letter "E"
+	 */
 	public String stringer() {
 		
 		return "E";

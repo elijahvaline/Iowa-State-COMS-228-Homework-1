@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  *  
- * @author
+ * @author Elijah Valine 
  *
  */
 
@@ -26,13 +26,7 @@ public class Wildlife {
 	 */
 
 	public static void updatePlain(Plain pOld, Plain pNew) {
-		// TODO
-		//
-		// For every life form (i.e., a Living object) in the grid pOld, generate
-		// a Living object in the grid pNew at the corresponding location such that
-		// the former life form changes into the latter life form.
-		//
-		// Employ the method next() of the Living class.
+		// Updates the cycle by calling next() on every element of the plain pOld.
 		Living x;
 		for (int i = 0; i < pOld.grid.length; i++) {
 			for (int j = 0; j < pOld.grid.length; j++) {
@@ -54,7 +48,8 @@ public class Wildlife {
 	 * @throws FileNotFoundException
 	 */
 	public static void main(String[] args) throws FileNotFoundException {
-
+		// Outputs the user instructions and takes user input from a scanner and applies
+		// it to variables. Using a switch statement the correct trial is then executed.
 		int input;
 		boolean running = true;
 		int trial = 1;
@@ -81,7 +76,6 @@ public class Wildlife {
 				theWild = new Plain(grid);
 				System.out.print("Enter the number of cycles:");
 				cycles = sc.nextInt();
-				
 
 				System.out.println("\n" + "Initial Plain: " + "\n" + "\n" + theWild.toString());
 				for (int i = 0; i < cycles; i++) {
@@ -96,7 +90,7 @@ public class Wildlife {
 				System.out.println("Plain input from a file");
 				System.out.print("File Name: ");
 				file = sc.next();
-				System.out.print("Enter the number of cycles: " + "\n" );
+				System.out.print("Enter the number of cycles: " + "\n");
 				cycles = sc.nextInt();
 				theWild = new Plain(file);
 				System.out.println("Initial Plain: " + "\n" + "\n" + theWild.toString());

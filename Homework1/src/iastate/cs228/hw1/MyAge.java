@@ -2,7 +2,7 @@ package iastate.cs228.hw1;
 
 /**
  *  
- * @author
+ * @author Elijah Valine
  *
  */
 
